@@ -1,0 +1,6 @@
+# 1 MB
+'A' * 1MB | Set-Content -Path ".\plik_1MB.txt" -NoNewline
+# 2 MB
+'B' * 2MB | Set-Content -Path ".\plik_2MB.txt" -NoNewline
+# 5 MB
+'C' * 5MB | Set-Content -Path ".\plik_5MB.txt" -NoNewline
