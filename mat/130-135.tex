@@ -1,0 +1,572 @@
+% ======================================================================
+%  IX. Całka oznaczona  –  strona 130 (1 : 1)
+% ======================================================================
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{mathptmx}   % Times New Roman – tekst + wzory
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx}   % jeśli jeszcze nie dodano
+
+\pagestyle{plain}
+\sloppy                       % zapobiega overfull boxes
+
+\begin{document}
+\setcounter{page}{130}
+
+\begin{center}
+{\bfseries IX. Całka oznaczona}
+\end{center}
+
+Na zakończenie, korzystając z własności wielomianów Legendre’a,
+wyprowadzimy wzory redukcyjne wiążące trzy kolejne takie wielomiany.
+
+Zauważamy na wstępie, że wielomian $x^{n}$ można wyrazić w postaci funkcji
+liniowej jednorodnej zmiennych
+$P_{0},P_{1},\dots ,P_{n}$ o stałych współczynnikach; jest to również
+prawdą dla dowolnego wielomianu stopnia $n$.
+Dlatego też
+\[
+xP_{n}=a_{0}P_{\,n+1}+a_{1}P_{n}+a_{2}P_{\,n-1}+a_{3}P_{\,n-2}+\dots,
+\]
+gdzie $a_{0},a_{1},a_{2},a_{3},\dots$ są współczynnikami stałymi.
+Łatwo jest sprawdzić, że $a_{2}=a_{4}=a_{6}=\dots=0$.
+Na przykład, aby obliczyć $a_{3}$, mnożymy obie strony tej równości
+przez $P_{\,n-2}$ i całkujemy od $-1$ do $1$:
+\[
+\int_{-1}^{1} P_{n}\,x\,P_{\,n-2}\,dx
+=
+a_{0}\!\int_{-1}^{1} P_{\,n+1}P_{\,n-2}\,dx
++
+a_{1}\!\int_{-1}^{1} P_{n}P_{\,n-2}\,dx
++
+a_{3}\!\int_{-1}^{1} P_{\,n-2}^{2}\,dx+\dots
+\]
+W myśl (8) i (9) wszystkie całki z wyjątkiem jednej są zerami, stąd
+\[
+a_{3}\int_{-1}^{1} P_{\,n-2}^{2}\,dx = 0,\quad\text{skąd }a_{3}=0.
+\]
+
+Współczynnik $a_{1}$ jest także równy zeru, gdyż po lewej stronie
+równości w ogóle nie występuje wyraz z $x^{n}$.
+Aby wyznaczyć współczynnik $a_{0}$, porównujemy współczynniki przy
+$x^{\,n+1}$ po obu stronach równości
+\[
+\frac{(2n-1)!!}{n!}=a_{0}\,\frac{(2n+1)!!}{(n+1)!},
+\quad\text{skąd }a_{0}=\frac{\,n+1\,}{\,2n+1}.
+\]
+Wreszcie, aby wyznaczyć $a_{2}$, porównujemy wartości obu stron
+równości dla $x=1$:
+\[
+1=a_{0}+a_{2},\quad\text{skąd }a_{2}=1-a_{0}=\frac{\,n\,}{\,2n+1}.
+\]
+
+Podstawiając znalezione współczynniki, otrzymujemy ostatecznie
+\begin{equation}\label{eq:LegendreRec}
+(n+1)P_{\,n+1}-(2n+1)\,x\,P_{n}+nP_{\,n-1}=0.\tag{11}
+\end{equation}
+
+Jest to właśnie szukany wzór redukcyjny, który umożliwia znajdowanie
+kolejno wielomianów Legendre’a, wychodząc z $P_{0}=1,\;P_{1}=x$:
+\[
+P_{2}=\frac{3x^{2}-1}{2},\qquad
+P_{3}=\frac{5x^{3}-3x}{2},\qquad
+P_{4}=\frac{35x^{4}-30x^{2}+3}{8}.
+\]
+
+\bigskip
+{\bfseries 321. Nierówności całkowe.}
+W ustępach 133 i 144 wprowadziliśmy kilka nierówności dla sum.
+Pokażemy teraz, w jaki sposób podobne nierówności można otrzymać dla całek.
+Wszystkie występujące tu funkcje $p(x),q(x),v(x)$ są z założenia
+całkowalne\textsuperscript{(1)}.
+
+\begin{enumerate}
+\item
+W ustępie 133 mieliśmy nierówność (4), którą można napisać w postaci
+\begin{equation}
+\exp\frac{\displaystyle\sum p_{i}\ln a_{i}}{\displaystyle\sum p_{i}}
+<
+\frac{\displaystyle\sum p_{i}a_{i}}{\displaystyle\sum p_{i}}.
+\tag{12}
+\end{equation}
+Rozpatrzmy teraz dwie funkcje $p(x)$ i $q(x)$ dodatnie,
+określone w przedziale $\langle a,b\rangle$. Rozbijmy go punktami
+\[
+x_{0}=a<x_{1}<\dots<x_{i}<x_{i+1}<\dots<x_{s}=b.
+\]
+\end{enumerate}
+
+\vfill
+\noindent\textsuperscript{(1)} Z tego założenia wynika już całkowalność
+i innych napotykanych tu funkcji; dla uzasadnienia wystarczy się powołać
+na ustępy 299, II i 300, 4.
+
+%--------------------------------------------------------------------
+
+\newpage
+\thispagestyle{plain}
+\setcounter{page}{131}
+
+\begin{center}
+{\bfseries \S\;4. Niektóre zastosowania całek oznaczonych}
+\end{center}
+
+Przedział ten rozbijamy na podprzedziały o długościach
+$\Delta x_{i}=x_{i+1}-x_{i}$.
+Podstawmy teraz w nierówności~(12)
+$p_{i}=p(x_{i})\Delta x_{i}$,
+$a_{i}=\varphi(x_{i})$.
+Otrzymujemy nierówność
+\[
+\exp\frac{\displaystyle\sum p(x_{i})\ln\varphi(x_{i})\,\Delta x_{i}}
+         {\displaystyle\sum p(x_{i})\,\Delta x_{i}}
+<
+\frac{\displaystyle\sum p(x_{i})\varphi(x_{i})\,\Delta x_{i}}
+     {\displaystyle\sum p(x_{i})\,\Delta x_{i}}.
+\]
+
+Wszystkie występujące tu sumy mają postać sum całkowych i przy
+$\Delta x_{i}\!\to\!0$ dążą do odpowiednich całek.
+W ten sposób w granicy otrzymujemy nierówność całkową
+\[
+\exp\frac{\displaystyle\int_{a}^{b} p(x)\ln\varphi(x)\,dx}
+         {\displaystyle\int_{a}^{b} p(x)\,dx}
+<
+\frac{\displaystyle\int_{a}^{b} p(x)\varphi(x)\,dx}
+     {\displaystyle\int_{a}^{b} p(x)\,dx},
+\]
+analogiczną z (12).
+W szczególności dla $p(x)\equiv1$ mamy
+\[
+\exp\!\Bigl[\frac{1}{\,b-a\,}\int_{a}^{b}\ln\varphi(x)\,dx\Bigr]
+<
+\frac{1}{\,b-a\,}\int_{a}^{b}\varphi(x)\,dx.
+\]
+
+Wyrażenie stojące po prawej stronie nazywa się
+\emph{średnią arytmetyczną} wartości funkcji $\varphi(x)$
+w przedziale $\langle a,b\rangle$,  
+a wyrażenie po lewej — \emph{średnią geometryczną} tej funkcji.
+
+\medskip
+{\bfseries 2)} Wyprowadzimy teraz nierówności całkowe analogiczne do
+nierówności Cauchy’ego–Höldera oraz nierówności Minkowskiego [133, § 5, (7)]{}:
+\[
+\sum a_{i}b_{i}
+<
+\Bigl\{\sum a_{i}^{\,k}\Bigr\}^{1/k}\,
+\Bigl\{\sum b_{i}^{\,k'}\Bigr\}^{1/k'},\tag{13}
+\]
+
+\[
+\Bigl\{\sum(a_{i}+b_{i})^{k}\Bigr\}^{1/k}
+<
+\Bigl\{\sum a_{i}^{\,k}\Bigr\}^{1/k}
++
+\Bigl\{\sum b_{i}^{\,k}\Bigr\}^{1/k},\tag{14}
+\]
+
+gdzie $k,k'>1$ oraz $\dfrac1k+\dfrac1{k'}=1$.
+
+Niech dane będą w przedziale $\langle a,b\rangle$ dwie funkcje dodatnie
+$p(x)$ i $\psi(x)$;
+rozbijmy, jak wyżej, ten odcinek punktami $x_{i}$ i podstawmy w (13)
+\[
+a_{i}=\varphi(x_{i})\,\Delta x_{i}^{1/k},
+\qquad
+b_{i}=\psi(x_{i})\,\Delta x_{i}^{1/k'},
+\]
+a w (14)
+\[
+a_{i}=\varphi(x_{i})\,\Delta x_{i}^{1/k},
+\qquad
+b_{i}=\psi(x_{i})\,\Delta x_{i}^{1/k}.
+\]
+
+Otrzymujemy
+\[
+\sum \varphi(x_{i})\psi(x_{i})\,\Delta x_{i}
+<
+\Bigl\{\sum[\varphi(x_{i})\,\Delta x_{i}]^{k}\Bigr\}^{1/k}
+\Bigl\{\sum[\psi(x_{i})\,\Delta x_{i}]^{k'}\Bigr\}^{1/k'},
+\]
+\[
+\Bigl\{\sum[\varphi(x_{i})+\psi(x_{i})]^{k}\,\Delta x_{i}\Bigr\}^{1/k}
+<
+\Bigl\{\sum[\varphi(x_{i})\,\Delta x_{i}]^{k}\Bigr\}^{1/k}
++
+\Bigl\{\sum[\psi(x_{i})\,\Delta x_{i}]^{k}\Bigr\}^{1/k}.
+\]
+
+Przechodząc do granicy przy $\Delta x_{i}\to0$, otrzymujemy ostatecznie
+\[
+\int_{a}^{b} \varphi\psi dx
+<
+\Bigl\{\int_{a}^{b} \varphi^{k}\,dx\Bigr\}^{1/k}
+\Bigl\{\int_{a}^{b} \psi^{k'}\,dx\Bigr\}^{1/k'},
+\tag{13$^{\ast}$}
+\]
+oraz
+\[
+\Bigl\{\int_{a}^{b}[\varphi+\psi]^{k}\,dx\Bigr\}^{1/k}
+<
+\Bigl\{\int_{a}^{b} \varphi^{k}\,dx\Bigr\}^{1/k}
++
+\Bigl\{\int_{a}^{b} \psi^{k}\,dx\Bigr\}^{1/k}.
+\tag{14$^{\ast}$}
+\]
+%--------------------------------------------------------------------
+
+\newpage
+\thispagestyle{plain}
+\setcounter{page}{132}
+
+\begin{center}
+{\bfseries IX. Całka oznaczona}
+\end{center}
+
+Zwracamy uwagę na szczególne przypadki tych wzorów, kiedy
+$k=k'=2$:
+
+\[
+(\text{13'})\qquad
+\int_{a}^{b}\varphi\psi\,dx
+\le
+\sqrt{\int_{a}^{b}\varphi^{2}\,dx}\;
+\sqrt{\int_{a}^{b}\psi^{2}\,dx},
+\]
+
+i
+
+\[
+(\text{14'})\qquad
+\sqrt{\int_{a}^{b}[\varphi+\psi]^{2}\,dx}
+\le
+\sqrt{\int_{a}^{b}\varphi^{2}\,dx}
++
+\sqrt{\int_{a}^{b}\psi^{2}\,dx}.
+\]
+
+Pierwsza z nich jest nierównością Buniakowskiego.
+Drugą łatwo otrzymuje się z niej przez podniesienie stronami do kwadratu.
+
+\bigskip
+{\bfseries 2)} Rozpatrzmy jeszcze nierówność Jensena [144 (12$^{\prime}$)]:
+\[
+(\text{15})\qquad
+f\!\Bigl(\frac{\sum p_{i}x_{i}}{\sum p_{i}}\Bigr)
+\le
+\frac{\sum p_{i}f(x_{i})}{\sum p_{i}},
+\]
+o funkcji $f(x)$ zakładamy tu, że jest ona wypukła w pewnym przedziale $X$,
+w którym leżą punkty $x_{i}$, a $p_{i}$ są liczbami dodatnimi.
+Przypuśćmy, że funkcja $\varphi(x)$ jest określona w pewnym przedziale
+$\langle a,b\rangle$ i jej wartości leżą w przedziale $X$,
+a funkcja $p(x)$ jest dodatnia i również określona w przedziale
+$\langle a,b\rangle$.
+Niech teraz $x_{i}$ oznaczają punkty podziału tego odcinka.
+Dawne $x_{i}$ we wzorze (15) zastąpimy przez $\varphi(x_{i})$,
+a $p_{i}$ przez $p(x_{i})\Delta x_{i}$.
+Przechodząc następnie, tak jak wyżej, od sum całkowych do całek,
+otrzymamy \emph{całkową nierówność Jensena}:
+\[
+f\!\left(
+      \frac{\displaystyle\int_{a}^{b} p(x)\,\varphi(x)\,dx}
+           {\displaystyle\int_{a}^{b} p(x)\,dx}
+   \right)
+<
+\frac{\displaystyle\int_{a}^{b} p(x)\,f\!\bigl(\varphi(x)\bigr)\,dx}
+     {\displaystyle\int_{a}^{b} p(x)\,dx}\, .
+\]
+
+
+%--------------------------------------------------------------------
+\section*{\S\;5. Przybliżone obliczanie całek oznaczonych}
+
+\subsection*{322. Postawienie zadania. Metoda prostokątów i metoda trapezów}
+
+Przypuśćmy, że mamy znaleźć całkę
+$\displaystyle\int_{a}^{b} f(x)\,dx$,
+gdzie $f(x)$ jest pewną funkcją ciągłą określoną w przedziale
+$\langle a,b\rangle$.
+W § 3 podaliśmy wiele przykładów obliczania takich całek
+albo za pomocą funkcji pierwotnej, jeśli można ją było przedstawić
+w postaci skończonej, albo też — omijając funkcję pierwotną —
+za pomocą różnych chwytów, najczęściej dość sztucznych.
+Zauważmy jednak, że wszystkie te metody dadzą się zastosować
+jedynie do dość wąskiej klasy całek; poza tą klasą musimy się uciekać
+do metod rachunku przybliżonego.
+
+Obecnie poznamy najprostsze z metod, w których wzory przybliżone
+na całkę wykorzystują pewną liczbę wartości funkcji podcałkowej,
+obliczanych dla pewnych wartości (zazwyczaj równoodległych) zmiennej
+niezależnej.
+
+Pierwsze spośród takich wzorów otrzymuje się najprościej z rozważań
+geometrycznych. Traktując całkę oznaczoną
+$\displaystyle\int_{a}^{b} f(x)\,dx$
+jako pole pewnej figury geometrycznej ograniczonej krzywą $y=f(x)$
+[294], postawimy sobie za zadanie znalezienie tego pola.
+
+%--------------------------------------------------------------------
+
+\newpage
+\thispagestyle{plain}
+\setcounter{page}{133}
+
+Przede wszystkim zastosujemy powtórnie tę samą myśl, która doprowadziła nas
+do pojęcia całki oznaczonej.
+Rozbijemy mianowicie całą figurę (rys.\,6) na paski równej szerokości
+$\Delta x_{1}=\dfrac{b-a}{n}$\,, a następnie każdy pasek zastępujemy w przybliżeniu przez prostokąt
+o wysokości równej jednej z rzędnych. Prowadzi to do wzoru
+\[
+\int_{a}^{b}f(x)\,dx
+= \frac{b-a}{n}\,
+  \bigl[f(\xi_{0})+f(\xi_{1})+\dots+f(\xi_{\,n-1})\bigr],
+\]
+gdzie $x_{i}<\xi_{i}<x_{i+1}$ ($i=0,1,\dots ,n-1$).
+Pole krzywoliniowej figury zastępujemy tu polem pewnej figury schodkowej
+złożonej z prostokątów (innymi słowy, całkę oznaczoną zastępujemy sumą
+całkową). Taki przybliżony sposób obliczania całki nazywa się
+\emph{metodą prostokątów.}
+
+\begin{figure}[h]            % [h] – umieść rysunki w tym miejscu
+  \centering
+  %--- Rysunek 6 --------------------------------------------------------
+  \begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Rys6.png}
+    \caption{}
+  \end{minipage}
+  \hfill
+  %--- Rysunek 7 --------------------------------------------------------
+  \begin{minipage}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Rys7.png}
+    \caption{}
+  \end{minipage}
+\end{figure}
+
+
+W praktyce bierze się zazwyczaj
+\[
+\xi_{i}=\frac{x_{i}+x_{i+1}}{2}=x_{\,i+\tfrac12}.
+\]
+Jeśli odpowiednią rzędną $f(\xi_{i})=f(x_{\,i+\tfrac12})$
+oznaczymy przez $y_{\,i+\tfrac12}$, to ostatni wzór przyjmie postać
+\[
+(\text{1})\qquad
+\int_{a}^{b}f(x)\,dx =
+\frac{b-a}{n}\bigl(y_{\,\tfrac12}+y_{\,\tfrac32}+\dots+y_{\,n-\tfrac12}\bigr).
+\]
+
+W dalszym ciągu mówiąc o metodzie prostokątów będziemy mieli zawsze na myśli
+ten właśnie wzór.
+
+Interpretacja geometryczna prowadzi również do innego wzoru przybliżonego,
+który jest często stosowany.
+Zastępujemy mianowicie daną krzywą wpisaną w nią łamaną o wierzchołkach
+w punktach $(x_{i},y_{i})$, gdzie $y_{i}=f(x_{i})$ ($i=0,1,\dots ,n-1$).
+W ten sposób zastępujemy naszą figurę krzywoliniową przez inną,
+składającą się z pewnej liczby trapezów (rys.\,7).
+Jeśli — jak poprzednio — podzielimy przedział $\langle a,b\rangle$
+na jednakowe części, to pola tych trapezów będą odpowiednio równe
+\[
+\frac{b-a}{n}\,\cdot\,\frac{y_{0}+y_{1}}{2},\quad
+\frac{b-a}{n}\,\cdot\,\frac{y_{1}+y_{2}}{2},\;\dots,\;
+\frac{b-a}{n}\,\cdot\,\frac{y_{\,n-1}+y_{n}}{2}.
+\]
+Dodając te pola otrzymamy nowy wzór przybliżony
+\[
+(\text{2})\qquad
+\int_{a}^{b}f(x)\,dx =
+\frac{b-a}{n}\Bigl(
+\frac{y_{0}+y_{n}}{2}+y_{1}+y_{2}+\dots+y_{\,n+1}\Bigr).
+\]
+
+Jest to tak zwany \emph{wzór trapezów.}
+
+%--------------------------------------------------------------------
+
+\newpage
+\thispagestyle{plain}
+\setcounter{page}{134}
+Można udowodnić, że przy przejściu $n\to\infty$
+błąd w obu wyprowadzonych wzorach dąży do zera.
+Wobec tego oba te wzory przy dostatecznie dużym $n$
+dają przybliżoną wartość szukanej całki z dowolnie dużą dokładnością.
+
+Jako przykład weźmy znaną nam już całkę
+\[
+\int_{0}^{1}\frac{dx}{1+x^{2}}=\frac{\pi}{4}=0{,}785398\dots
+\]
+i obliczymy jej wartość przybliżoną za pomocą obu tych wzorów,
+biorąc $n=10$ i uwzględniając 4 miejsca dziesiętne.
+
+%––– WEDŁUG METODY PROSTOKĄTÓW –––––––––––––––––––––––––––––––––––––
+\paragraph*{Według metody prostokątów mamy:}
+
+\[
+\begin{array}{@{}r@{\;=\;}l@{\qquad}r@{\;=\;}l@{\qquad}
+              r@{\;=\;}l@{\qquad}r@{\;=\;}l@{}}
+x_{\frac12}  & 0{,}05 & y_{\frac12}  & 0{,}9975 &
+x_{\frac{11}2} & 0{,}55 & y_{\frac{11}2} & 0{,}7678 \\[2pt]
+x_{\frac32}  & 0{,}15 & y_{\frac32}  & 0{,}9780 &
+x_{\frac{13}2} & 0{,}65 & y_{\frac{13}2} & 0{,}7030 \\[2pt]
+x_{\frac52}  & 0{,}25 & y_{\frac52}  & 0{,}9412 &
+x_{\frac{15}2} & 0{,}75 & y_{\frac{15}2} & 0{,}6400 \\[2pt]
+x_{\frac72}  & 0{,}35 & y_{\frac72}  & 0{,}8909 &
+x_{\frac{17}2} & 0{,}85 & y_{\frac{17}2} & 0{,}5866 \\[2pt]
+x_{\frac92}  & 0{,}45 & y_{\frac92}  & 0{,}8316 &
+x_{\frac{19}2} & 0{,}95 & y_{\frac{19}2} & 0{,}5256
+\end{array}
+\]
+
+\[
+\underline{\text{Suma }\,7{,}8562}
+\quad\Longrightarrow\quad
+\frac{\displaystyle 7{,}8562}{10}=0{,}78562
+\]
+
+%–––– ZE WZORÓW TRAPEZÓW OTRZYMUJEMY ––––––––––––––––––––––––––––––––
+\paragraph*{Ze wzorów trapezów otrzymujemy:}
+
+\begin{center}
+%–– lewy blok ––
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\begin{tabular}{@{}r@{\,=\,}l\quad r@{\,=\,}l@{}}
+$x_{0}$  & 0{,}0 & $y_{0}$  & 1{,}0000\\
+$x_{10}$ & 1{,}0 & $y_{10}$ & 0{,}5000\\ \hline
+\end{tabular}
+
+\vspace{2pt}
+Suma \; 1,5000
+\end{minipage}
+\hfill
+%–– prawy blok ––
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\begin{tabular}{@{}r@{\,=\,}l\quad r@{\,=\,}l@{}}
+$x_{1}$ & 0{,}1 & $y_{1}$ & 0{,}9901\\
+$x_{2}$ & 0{,}2 & $y_{2}$ & 0{,}9615\\
+$x_{3}$ & 0{,}3 & $y_{3}$ & 0{,}9174\\
+$x_{4}$ & 0{,}4 & $y_{4}$ & 0{,}8621\\
+$x_{5}$ & 0{,}5 & $y_{5}$ & 0{,}8000\\
+$x_{6}$ & 0{,}6 & $y_{6}$ & 0{,}7353\\
+$x_{7}$ & 0{,}7 & $y_{7}$ & 0{,}6711\\
+$x_{8}$ & 0{,}8 & $y_{8}$ & 0{,}6098\\
+$x_{9}$ & 0{,}9 & $y_{9}$ & 0{,}5525\\ \hline
+\end{tabular}
+
+\vspace{2pt}
+Suma \; 7,0998
+\end{minipage}
+\end{center}
+
+\[
+\frac{1}{10}\!\Bigl(\,\frac{1{,}5000}{2}+7{,}0998\Bigr)=0{,}78498
+\]
+
+Oba otrzymane wyniki przybliżone mają mniej więcej ten sam rząd
+dokładności — różnią się one od wartości dokładnej o mniej niż
+$0{,}0005$ (w jedną i drugą stronę).
+
+Czytelnik zdaje sobie oczywiście sprawę z tego, że w tym przypadku
+moglibyśmy oszacować błąd tylko dlatego, że od początku znamy dokładną
+wartość tej całki. Na to, żeby oba wzory były rzeczywiście przydatne do
+obliczeń przybliżonych, potrzebne są wygodne wzory do obliczania błędu,
+które pozwalałyby nie tylko oszacować błąd, ale również dobierać $n$ w
+ten sposób, by zagwarantować żądaną dokładność. Do tego zagadnienia
+wrócimy jeszcze w ustępie 325.
+
+%--------------------------------------------------------------------
+
+\newpage
+\thispagestyle{plain}
+\setcounter{page}{135}
+\subsection*{323. Interpolacja paraboliczna}
+
+Aby obliczyć przybliżoną wartość całki
+$\displaystyle\int_{a}^{b}f(x)\,dx$
+można spróbować zastąpić funkcję $f(x)$ aproksymującym ją wielomianem
+\begin{equation}
+(3)\qquad
+y=P_{k}(x)=a_{0}x^{k}+a_{1}x^{\,k-1}+\dots+a_{k-1}x+a_{k}
+\end{equation}
+i przyjąć
+\[
+\int_{a}^{b}f(x)\,dx\;\approx\;\int_{a}^{b}P_{k}(x)\,dx .
+\]
+
+Inaczej mówiąc, zastępujemy tu, przy obliczaniu pola, daną „krzywą”
+$y=f(x)$ przez parabolę (3) stopnia $k$. W związku z tym metoda ta
+otrzymała nazwę \emph{interpolacji parabolicznej.}
+
+Wielomian interpolacyjny $P_{k}(x)$ wybiera się najczęściej w sposób
+następujący. W przedziale $\langle a,b\rangle$ bierzemy
+$k+1$ wartości zmiennej niezależnej
+$\xi_{0},\xi_{1},\dots,\xi_{k}$ i dobieramy wielomian $P_{k}(x)$ tak,
+ażeby dla wybranych wartości zmiennej niezależnej przyjmował on te same
+wartości, co funkcja $f(x)$. Wielomian spełniający taki warunek jest, jak wiemy [128], jednoznacznie określony i można go wyrazić \emph{wzorem interpolacyjnym Lagrange’a}:
+\[
+\begin{aligned}
+P_{k}(x)=&
+\frac{(x-\xi_{1})(x-\xi_{2})\dots(x-\xi_{k})}
+     {(\xi_{0}-\xi_{1})(\xi_{0}-\xi_{2})\dots(\xi_{0}-\xi_{k})}\,
+     f(\xi_{0})
+\\[4pt]
+&+\,\frac{(x-\xi_{0})(x-\xi_{2})\dots(x-\xi_{k})}
+        {(\xi_{1}-\xi_{0})(\xi_{1}-\xi_{2})\dots(\xi_{1}-\xi_{k})}\,
+        f(\xi_{1})
++\;\dots\\[4pt]
+&+\,\frac{(x-\xi_{0})(x-\xi_{1})\dots(x-\xi_{k-1})}
+        {(\xi_{k}-\xi_{0})(\xi_{k}-\xi_{1})\dots(\xi_{k}-\xi_{k-1})}\,
+        f(\xi_{k}) .
+\end{aligned}
+\]
+
+
+Do scałkowania otrzymuje się w ten sposób wyrażenie liniowe względem
+$f(\xi_{0}),\dots ,f(\xi_{k})$, którego współczynniki nie zależą już od tych wartości.
+Współczynniki te można wyznaczyć raz na zawsze i posługiwać się nimi przy
+obliczaniu przybliżonym całki dowolnej funkcji $f(x)$ w danym przedziale
+$\langle a,b\rangle$.
+
+W najprostszym przypadku dla $k=0$ funkcję $f(x)$ zastępujemy
+po prostu stałą $f(\xi_{0})$, gdzie $\xi_{0}$ jest dowolnym punktem
+z przedziału $\langle a,b\rangle$, na przykład jego środkiem
+$\xi_{0}=(a+b)/2$. Wtedy w przybliżeniu mamy
+\[
+\makebox[0pt][l]{\hspace*{-2em}(4)\quad}   % numer w lewym marginesie
+\int_{a}^{b} f(x)\,dx \;\approx\; (b-a)\,
+      f\!\left(\frac{a+b}{2}\right).
+\]
+
+
+Interpretując geometrycznie ten wzór widzimy, że pole figury
+krzywoliniowej jest tu zastąpione polem prostokąta o wysokości równej
+rzędnej funkcji $f(x)$ w środku przedziału.
+
+Przy $k=1$ funkcja $f(x)$ zostaje zastąpiona przez funkcję liniową
+$P_{1}(x)$, która dla $x=\xi_{0}$ i $x=\xi_{1}$ ma takie same wartości
+jak $f(x)$. Jeśli przyjąć $\xi_{0}=a,\;\xi_{1}=b$, to będzie
+\[
+P_{1}(x)=\frac{x-b}{a-b}f(a)+\frac{x-a}{b-a}f(b)
+\]
+i jak łatwo sprawdzić
+\[
+\int_{a}^{b} P_{1}(x)\,dx=(b-a)\,\frac{f(a)+f(b)}{2}.
+\]
+W ten sposób otrzymaliśmy w przybliżeniu
+\[
+(\text{5})\qquad
+\int_{a}^{b}f(x)\,dx \approx (b-a)\,\frac{f(a)+f(b)}{2}.
+\]
+
+\end{document}

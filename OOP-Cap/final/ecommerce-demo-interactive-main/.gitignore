@@ -1,0 +1,11 @@
+# Ignore compiled Java classes
+/target/
+*.class
+
+# Optional: editor / OS junk
+*.log
+*.swp
+.DS_Store
+.idea/
+*.iml
+.vscode/
