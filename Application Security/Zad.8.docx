@@ -1,0 +1,19 @@
+Analiza API – IDOR
+Masz adres: /api/user/12345.
+Zadanie: zastanów się, co się stanie, jeśli ktoś ręcznie zmieni numer ID w URL. Jak temu zapobiec?
+Cel: poznanie ataku typu IDOR i sposobów jego blokady (kontrola dostępu, tokeny).
+
+Insecure Direct Object Reference (IDOR) to luka w zabezpieczeniach, która pojawia się, gdy osoby atakujące mogą uzyskać dostęp do obiektów lub je modyfikować poprzez manipulowanie identyfikatorami używanymi w adresach URL lub parametrach aplikacji internetowej. Wynika to z braku kontroli dostępu, która nie weryfikuje, czy użytkownik powinien mieć dostęp do określonych danych.
+
+adres /api/user/12345 to defacto adres folderu danego użytkownika. Liczba 12345 to defacto identyfikator użytkownika. Mając adres www.wp.pl/api/user/12345 oznacza to, że /api/user/12345. Wskazuje na lokalizacje folderu usera 12345 strony wp.pl
+
+zmiana liczby 12345 na inną np. 12346 może spowodować wyświetlenie danych, które przeznaczone sa dla usera 12346. Może być to przykład nieuprawnionego dostępu do danych innego użytkownika. 
+
+Sposobów na zabezpieczenie jest wiele, pierwszym najprostrzym jest wyświetlanie user catalog’u w formie zahashowanej. 
+
+zamiast 12345, używając SHA-256 będziemy mieć 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5
+A dla 12346, używając SHA-256 będziemy mieć 34d128f5b3dede622e107438fbefabdf0519ebab21ac7b6f2075f974d09ce524
+Powyższy przykład prezentuje jak zmiana 1 znaku wpływa na całkowitą zmianę ciągu znaków (hasha). 
+
+innym przykaldem zabezpieczenia jest wprowadzanie poprawnej autoryzacji i authentykacji użytkownika z wykorzystaniem refresh tokenow np. JWT. 
+
