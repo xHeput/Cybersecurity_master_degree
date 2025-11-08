@@ -1,0 +1,12 @@
+Symulacja XSS
+W komentarzu na stronie wpisano: <script>alert("Hacked!")</script>.
+Zadanie: opisz, co się stanie w przeglądarce i jak można temu zapobiec (walidacja, escapowanie, CSP).
+Cel: zrozumienie problemu Cross-Site Scripting.
+Znacznik <script> rozpoczyna interpretacje JavaScript w HTML. 
+funkcja alert() wyświetla banery w przeglądarce
+„Hacked” jest stringiem, który wyświetlany baner wyświetli
+</script> jest znacznikiem kończącym działanie kodu JavaScript
+
+Metod zabezpieczenia inputów w HTML jest wiele, przykładem zabezpieczenia technicznego prze XSS jest Regular Expresions (RegEx). Dzięki RegEx’om możemy definiować input, który oczekujemy od usera. 
+
+Zasada bezpieczeństwa jest tutaj prosta, pozwalamy zrobić użytkownikowi tylko tyle ile my od niego potrzebujemy / oczekujemy. Jeśli chcemy udostępnić pole użytkownikowi do wpisania numeru, powinniśmy pozwolić wpisać tylko cyfry, a dodatkowo ograniczyć zakres w jakim działamy. Z matematycznego punktu widzenia litera „e” również jest cyfrą, a prawdopodobnie use case w którym oczekuejmy od usera litery e jaki inputu w polu numerycznym jest niemożliwa
