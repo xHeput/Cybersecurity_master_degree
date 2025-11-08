@@ -1,0 +1,7 @@
+ Klasyfikacja danych
+Masz listę: PESEL, adres e-mail, adres IP, numer karty kredytowej, token API, grupa krwi.
+Zadanie: przyporządkuj je do kategorii: dane osobowe zwykłe, szczególne, biznesowo wrażliwe.
+Cel: zrozumienie związku bezpieczeństwa aplikacji z przepisami prawnymi (np. RODO).
+Dane osobowe zwykłe: adres e-mail
+Dane osobowe szczególne: numer karty kredytowej, grupa krwi, numer PESEL
+Dane biznesowe wrażliwe: token API, adres IP
